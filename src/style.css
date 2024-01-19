@@ -1,0 +1,8 @@
+.addTaskForm {
+    display: flex;
+    flex-direction: column;
+}
+.addTaskForm > button {
+    height: 30px;
+    width: 50px;
+}
