@@ -1,4 +1,6 @@
  import { createTaskDom } from "./dom";
+
+ import { add } from "date-fns";
  const tasksContainer = [];
  class Task {
     constructor(name, description, dueDate) {
@@ -16,7 +18,7 @@ const addTask = () => {
 
     const task = new Task(name, description, dueDate);
     tasksContainer.push(task);
-    
+    console.log(tasksContainer);
     displayTask(tasksContainer);
 
 }

@@ -24,8 +24,28 @@ li:not(:last-child) {
     margin-bottom: 3vh;
 }
 .main {
+    position: relative;
     width: 80vw;
     background-color: rgb(255, 255, 255);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addTaskModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+.mainHeader {
+    font-size: 50px;
+    font-weight: bold;
+}
+.addTaskBtn {
+    border: none;
+    background-color: none;
+    font-size: 30px;
 }
 
 .header {
@@ -40,4 +60,12 @@ li:not(:last-child) {
 .addTaskForm > button {
     height: 30px;
     width: 50px;
+}
+.taskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.taskCard {
+    border: 2px solid black;
 }
