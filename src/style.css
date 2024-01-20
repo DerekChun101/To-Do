@@ -1,3 +1,38 @@
+body {
+    margin: 0;
+}
+.contentContainer {
+    display: flex;
+}
+.sideBar {
+    width: 20vw;
+    height: 100vh;
+    background: midnightblue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.sideBar > .header {
+    border-bottom: 1px solid white;
+}
+.tabs {
+    list-style: none;
+    font-size: 30px;
+}
+li:not(:last-child) {
+    margin-bottom: 3vh;
+}
+.main {
+    width: 80vw;
+    background-color: rgb(255, 255, 255);
+}
+
+.header {
+    font-size: 50px;
+    font-weight: bold;
+}
+
 .addTaskForm {
     display: flex;
     flex-direction: column;

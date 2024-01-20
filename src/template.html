@@ -7,8 +7,22 @@
 </head>
 <body>
     <div class="contentContainer">
-        <div class="sideBar"></div>
+        <div class="sideBar">
+            <div class="header">
+                Todo
+            </div>
+            <ul class="tabs">
+                <li class="tab" id="home">Home</li>
+                <li class="tab" id="today">Today</li>
+                <li class="tab" id="thisWeek">This Week</li>
+            </ul>
+            <div class="header">
+                Projects
+            </div>
+        </div>
         <div class="main">
+            <div class="mainHeader"></div>
+            <button class="addTaskBtn">Add Task</button>
             <dialog class="addTaskModal">
                 
                 <form class="addTaskForm">
@@ -31,7 +45,7 @@
                 </form>
             </dialog>
             <div class="taskContainer"></div>
-            <button class="addTaskBtn">Add Task</button>
+           
         </div>
     </div>
 </body>
