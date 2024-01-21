@@ -1,5 +1,5 @@
 import { format,add } from "date-fns";
-
+import { tasksArray } from "./task";
 const taskContainer = document.querySelector('.taskContainer');
 let mainHeader = document.querySelector('.mainHeader');
 
@@ -15,12 +15,36 @@ const loadThisWeek = () => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = 'This Week';
 }
-const createTaskDom = (task) => {
+const createTaskDom = (task, id) => {
+   
     let taskCard = document.createElement('div');
     taskCard.className = 'taskCard'
+    let leftSection = document.createElement('div');
+    leftSection.className ='left';
+    let rightSection = document.createElement('div');
+    rightSection.className ='right';
     let taskCardname = document.createElement('div');
+
+    let checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    checkBox.addEventListener('change', () => {
+        
+        if(taskCard.classList.contains('done')) {
+            taskCard.classList.remove('done');
+        } else {
+            taskCard.classList.add("done");
+        }
+    })
+    
+    
     let taskCardDate = document.createElement('div');
     let detailsButton = document.createElement('button');
+    let removeButton = document.createElement('button');
+    removeButton.innerHTML = 'X';
+    removeButton.addEventListener('click', () => {
+        taskContainer.removeChild(taskCard);
+        tasksArray.splice(id, 1);
+    })
     
     detailsButton.innerHTML = 'Details';
     detailsButton.addEventListener('click', () => {
@@ -30,11 +54,17 @@ const createTaskDom = (task) => {
     
     taskCardname.innerHTML = task.name;
     taskCardDate.innerHTML = formatTheDate(task.dueDate);
-1  
-    taskCard.appendChild(taskCardname);
-    taskCard.appendChild(detailsButton);
-    taskCard.appendChild(taskCardDate);
-   
+1   
+    leftSection.appendChild(checkBox);
+    leftSection.appendChild(taskCardname);
+    
+    
+    rightSection.appendChild(detailsButton);
+    rightSection.appendChild(taskCardDate);
+    rightSection.appendChild(removeButton);
+    taskCard.appendChild(leftSection);
+    taskCard.appendChild(rightSection);
+
     taskContainer.appendChild(taskCard);
 }
 

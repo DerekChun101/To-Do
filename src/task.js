@@ -1,7 +1,7 @@
  import { createTaskDom } from "./dom";
 
- import { add } from "date-fns";
- const tasksContainer = [];
+ 
+ const tasksArray = [];
  class Task {
     constructor(name, description, dueDate) {
         this.name = name;
@@ -17,17 +17,18 @@ const addTask = () => {
     const dueDate = document.getElementById('dueDate').value;
 
     const task = new Task(name, description, dueDate);
-    tasksContainer.push(task);
-    console.log(tasksContainer);
-    displayTask(tasksContainer);
+    tasksArray.push(task);
+    
+    displayTask(tasksArray);
 
 }
 const displayTask = (tasks) => {
     const taskContainer = document.querySelector('.taskContainer');
     taskContainer.innerHTML = '';
     for(let i = 0; i < tasks.length; i++) {
-        createTaskDom(tasks[i])
+        let id = i;
+        createTaskDom(tasks[i], id);
     }
 }
 
-export {addTask}
+export {addTask,tasksArray}
