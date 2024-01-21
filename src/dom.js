@@ -20,11 +20,21 @@ const createTaskDom = (task) => {
     taskCard.className = 'taskCard'
     let taskCardname = document.createElement('div');
     let taskCardDate = document.createElement('div');
-    taskCardname.innerHTML = task.name;
+    let detailsButton = document.createElement('button');
     
+    detailsButton.innerHTML = 'Details';
+    detailsButton.addEventListener('click', () => {
+        createTaskModal(task.name, task.description, task.dueDate);
+      
+    })
+    
+    taskCardname.innerHTML = task.name;
     taskCardDate.innerHTML = formatTheDate(task.dueDate);
+1  
     taskCard.appendChild(taskCardname);
+    taskCard.appendChild(detailsButton);
     taskCard.appendChild(taskCardDate);
+   
     taskContainer.appendChild(taskCard);
 }
 
@@ -35,6 +45,19 @@ function formatTheDate (date) {
             (month - 1),
             day,
     ), 'M-dd-yyyy')
+}
+
+function createTaskModal(name, description, date) {
+    const taskModal = document.createElement('dialog');
+    taskModal.className = 'taskModal';
+    let taskName = document.createElement('div');
+    taskName.innerHTML = name;
+
+    taskModal.appendChild(taskName);
+    taskContainer.appendChild(taskModal);
+
+    taskModal.showModal();
+
 }
 
 export {createTaskDom,

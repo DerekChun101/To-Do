@@ -24,7 +24,7 @@ li:not(:last-child) {
     margin-bottom: 3vh;
 }
 .main {
-    position: relative;
+  
     width: 80vw;
     background-color: rgb(255, 255, 255);
     padding: 30px;
@@ -32,22 +32,35 @@ li:not(:last-child) {
     flex-direction: column;
     align-items: center;
 }
-.addTaskModal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)
+.addTaskForm input {
+    margin-bottom: 3vh;
 }
+.addTaskForm textarea {
+    margin-bottom: 3vh;
+}
+.addTaskForm label {
+    font-weight: bold;
+}
+#description {
+    width: 200px;
+    height: 100px;
+}
+.addTaskModal {
+    border-radius: 10px;
+}
+
 .mainHeader {
     font-size: 50px;
     font-weight: bold;
 }
 .addTaskBtn {
     border: none;
-    background-color: none;
-    font-size: 30px;
+    background-color: white;
+    font-size: 20px;
 }
-
+.addTaskBtn:hover {
+    background-color: rgb(211,211,211, 0.5);
+}
 .header {
     font-size: 50px;
     font-weight: bold;
@@ -65,7 +78,17 @@ li:not(:last-child) {
     display: flex;
     flex-direction: column;
     gap: 2vh;
+    width: 1000px;
 }
 .taskCard {
-    border: 2px solid black;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 3vh;
+   font-size: 30px;
+
 }
+.taskCard:hover {
+    background-color: rgb(211,211,211, 0.5);
+}   
