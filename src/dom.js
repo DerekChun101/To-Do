@@ -49,14 +49,35 @@ function formatTheDate (date) {
 
 function createTaskModal(name, description, date) {
     const taskModal = document.createElement('dialog');
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = 'X';
+ 
     taskModal.className = 'taskModal';
-    let taskName = document.createElement('div');
-    taskName.innerHTML = name;
 
+    let taskName = document.createElement('div');
+    taskName.innerHTML = `Name:  ${name}`;
+
+    let taskDescription = document.createElement('div');
+    taskDescription.innerHTML = `Description:  ${description}`;
+
+    let taskDate = document.createElement('div');
+    taskDate.innerHTML = `Due date:  ${formatTheDate(date)}`;
+
+    
     taskModal.appendChild(taskName);
+    taskModal.appendChild(taskDescription);
+    taskModal.appendChild(taskDate);
+
+    taskModal.appendChild(closeBtn);
     taskContainer.appendChild(taskModal);
 
+    closeBtn.addEventListener('click', () => {
+        taskModal.close();
+        taskModal.remove();
+    })
     taskModal.showModal();
+
+
 
 }
 
