@@ -23,6 +23,8 @@ const loadToday = () => {
 const loadThisWeek = () => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = 'This Week';
+    whichTab = 'week';
+    createTaskList(tasksArray);
 }
 const createTaskDom = (task, id ,type) => {
     console.log(type);
@@ -82,14 +84,20 @@ const createTaskDom = (task, id ,type) => {
 }
 
 function displayTask (taskCard) {
-    
-
+    const thisWeek = add(new Date(), {
+        days: 7
+    });
+    const newDate = new Date(taskCard.childNodes[1].childNodes[1].innerHTML);
     if(whichTab === 'today') {
         if(taskCard.childNodes[1].childNodes[1].innerHTML == formatTheDate(date.toISOString().split('T')[0])) {
             taskContainer.appendChild(taskCard);
         };
     } else if(whichTab === 'home') {
         taskContainer.appendChild(taskCard);
+    } else if(whichTab === 'week') {
+        if(newDate < thisWeek) {
+            taskContainer.appendChild(taskCard);
+        } 
     }
 }
 
@@ -131,10 +139,9 @@ function createTaskModal(name, description, date) {
         taskModal.remove();
     })
     taskModal.showModal();
-
-
-
 }
+
+
 
 export {createTaskDom,
 loadHome,
