@@ -57,6 +57,7 @@ li:not(:last-child) {
     border: none;
     background-color: white;
     font-size: 20px;
+    margin-top: 2vh;
 }
 .addTaskBtn:hover {
     background-color: rgb(211,211,211, 0.5);
@@ -78,7 +79,7 @@ li:not(:last-child) {
     display: flex;
     flex-direction: column;
     gap: 2vh;
-    width: 1000px;
+    width: 1400px;
 }
 .taskCard {
    width: 100%;
@@ -112,7 +113,10 @@ li:not(:last-child) {
 
 .left {
     display: flex;
+    gap: 1vw;
+    align-items: center;
 }
+
 
 .right {
     display: flex;

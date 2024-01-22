@@ -1,22 +1,31 @@
 import { format,add } from "date-fns";
-import { tasksArray } from "./task";
+import { tasksArray, createTaskList } from "./task";
 const taskContainer = document.querySelector('.taskContainer');
 let mainHeader = document.querySelector('.mainHeader');
+
+let whichTab = '';
+let date = new Date();
+
 
 const loadHome = () => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = 'Home';
+    whichTab = 'home'
+    console.log();
+    createTaskList(tasksArray);
 }
 const loadToday = () => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = 'Today';
+    whichTab = 'today';
+    createTaskList(tasksArray);
 }
 const loadThisWeek = () => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = 'This Week';
 }
-const createTaskDom = (task, id) => {
-   
+const createTaskDom = (task, id ,type) => {
+    console.log(type);
     let taskCard = document.createElement('div');
     taskCard.className = 'taskCard'
     let leftSection = document.createElement('div');
@@ -38,12 +47,16 @@ const createTaskDom = (task, id) => {
     
     
     let taskCardDate = document.createElement('div');
+    taskCardDate.className = 'taskCardDate';
     let detailsButton = document.createElement('button');
     let removeButton = document.createElement('button');
+
     removeButton.innerHTML = 'X';
     removeButton.addEventListener('click', () => {
+        
         taskContainer.removeChild(taskCard);
         tasksArray.splice(id, 1);
+        
     })
     
     detailsButton.innerHTML = 'Details';
@@ -65,7 +78,19 @@ const createTaskDom = (task, id) => {
     taskCard.appendChild(leftSection);
     taskCard.appendChild(rightSection);
 
-    taskContainer.appendChild(taskCard);
+    displayTask(taskCard);
+}
+
+function displayTask (taskCard) {
+    
+
+    if(whichTab === 'today') {
+        if(taskCard.childNodes[1].childNodes[1].innerHTML == formatTheDate(date.toISOString().split('T')[0])) {
+            taskContainer.appendChild(taskCard);
+        };
+    } else if(whichTab === 'home') {
+        taskContainer.appendChild(taskCard);
+    }
 }
 
 function formatTheDate (date) {

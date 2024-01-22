@@ -2,6 +2,7 @@
 
  
  const tasksArray = [];
+ const taskContainer = document.querySelector('.taskContainer');
  class Task {
     constructor(name, description, dueDate) {
         this.name = name;
@@ -19,16 +20,18 @@ const addTask = () => {
     const task = new Task(name, description, dueDate);
     tasksArray.push(task);
     
-    displayTask(tasksArray);
+    createTaskList(tasksArray,'all');
 
 }
-const displayTask = (tasks) => {
-    const taskContainer = document.querySelector('.taskContainer');
+const createTaskList = (tasks,type) => {
+    
+    let typeOfTask = type
     taskContainer.innerHTML = '';
     for(let i = 0; i < tasks.length; i++) {
         let id = i;
-        createTaskDom(tasks[i], id);
+        createTaskDom(tasks[i], id, typeOfTask);
     }
 }
 
-export {addTask,tasksArray}
+
+export {addTask,tasksArray, createTaskList}
