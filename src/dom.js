@@ -150,6 +150,8 @@ function createTaskModal(name, description, date) {
 }
 
 const createProjectDom = (project, id) => {
+    let projectRow = document.createElement('div');
+    projectRow.className = 'projectRow'
     let projectCard = document.createElement('div');
     projectCard.className = 'projectCard';
     let projectName = document.createElement('div');
@@ -159,15 +161,18 @@ const createProjectDom = (project, id) => {
     removeProject.innerHTML = 'X';
     
     projectCard.appendChild(projectName);
-    projectCard.appendChild(removeProject);
-    projectContainer.appendChild(projectCard);
+    
+    projectRow.appendChild(projectCard);
+    projectRow.appendChild(removeProject);
+    projectContainer.appendChild(projectRow);
 
-    projectName.addEventListener('click', () => {
+    projectCard.addEventListener('click', () => {
         loadProject(projectName.innerHTML);
     })
     removeProject.addEventListener('click', () => {
-        projectContainer.removeChild(projectCard);
+        projectContainer.removeChild(projectRow);
         projectArray.splice(id, 1);
+        loadHome();
     })
 }
 

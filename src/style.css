@@ -142,6 +142,7 @@ li:not(:last-child) {
 }
 
 .projectContainer {
+    margin-top: 2vh;
     display: flex;
     flex-direction: column;
     gap: 1vh;
@@ -150,7 +151,16 @@ li:not(:last-child) {
 }
 .projectCard {
     font-size: 30px;
+    
+}
+.projectRow {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-size: 30px;
+}
+
+.projectCard:hover {
+    background-color: rgb(211,211,211, 0.5);
 }
