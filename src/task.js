@@ -20,16 +20,15 @@ const addTask = () => {
     const task = new Task(name, description, dueDate);
     tasksArray.push(task);
     
-    createTaskList(tasksArray,'all');
+    createTaskList(tasksArray);
 
 }
-const createTaskList = (tasks,type) => {
+const createTaskList = (tasks) => {
     
-    let typeOfTask = type
     taskContainer.innerHTML = '';
     for(let i = 0; i < tasks.length; i++) {
         let id = i;
-        createTaskDom(tasks[i], id, typeOfTask);
+        createTaskDom(tasks[i], id);
     }
 }
 
