@@ -1,12 +1,17 @@
 import './style.css';
 import { addTask } from './task'
+import { createProject } from './project';
 import { loadHome,loadThisWeek,loadToday } from './dom';
 
 loadHome();
 
 const dialog = document.querySelector('.addTaskModal');
+const dialog2 = document.querySelector('.addProjectModal');
 const open = document.querySelector('.addTaskBtn');
 const close = document.querySelector('.closeBtn');
+
+const openProject = document.querySelector('.addProjectBtn');
+const closeProject = document.querySelector('.projectClose');
 
 const homeTab = document.querySelector('#home');
 const todayTab = document.querySelector('#today');
@@ -33,6 +38,15 @@ close.addEventListener('click', () => {
     dialog.close();
 })
 
+openProject.addEventListener('click', ()=> {
+    dialog2.showModal();
+})
+
+closeProject.addEventListener('click', ()=> {
+    dialog2.close();
+})
+
+
 
 
 const callAddTask = (e) => { //Don't know why this is nesscary but it is!
@@ -40,5 +54,10 @@ const callAddTask = (e) => { //Don't know why this is nesscary but it is!
     e.preventDefault();
     dialog.close();
 }
-
-addEventListener('submit', callAddTask);
+const callAddProject = (e) => {
+    createProject();
+    e.preventDefault();
+    dialog2.close();
+}
+dialog.addEventListener('submit', callAddTask);
+dialog2.addEventListener('submit', callAddProject);
