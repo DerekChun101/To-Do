@@ -3,21 +3,17 @@ import { createProjectDom } from "./dom";
 const projectArray = [];
 const projectContainer = document.querySelector('.projectContainer');
 class Project {
-    constructor(name, id,  tasks = []) {
+    constructor(name,tasks = []) {
         this.name = name;
         this.tasks = tasks;
-        this.id = id;
+       
     } 
 
     getTasks() {
-        
         return this.tasks;
     }
-    getId() {
-        return this.id
-    }
+    
 }
-
 const createProject = () => {
     const name = document.getElementById('projectName').value;
     const project = new Project(name);

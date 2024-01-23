@@ -34,6 +34,7 @@ const loadProject = (name) => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = name;
     whichTab = 'project';
+    createTaskList(projectArray[currentId].getTasks())
 }
 const createTaskDom = (task, id ) => {
     
@@ -107,6 +108,8 @@ function displayTask (taskCard) {
         if(newDate < thisWeek) {
             taskContainer.appendChild(taskCard);
         } 
+    } else if(whichTab === 'project'){
+        taskContainer.appendChild(taskCard);
     }
 }
 
@@ -168,14 +171,17 @@ const createProjectDom = (project, id) => {
     projectContainer.appendChild(projectRow);
 
     projectCard.addEventListener('click', () => {
-        loadProject(projectName.innerHTML);
+        
         currentId = id;
         console.log(currentId);
+        loadProject(projectName.innerHTML);
+        
     })
     removeProject.addEventListener('click', () => {
         projectContainer.removeChild(projectRow);
         projectArray.splice(id, 1);
         createProjectList(projectArray);
+
         loadHome();
     })
 }
@@ -187,6 +193,7 @@ export {
     loadHome,
     loadToday,
     loadThisWeek,
+    loadProject,
     whichTab,
     currentId
 }

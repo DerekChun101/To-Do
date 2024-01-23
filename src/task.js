@@ -1,5 +1,5 @@
- import { createTaskDom, whichTab, currentId } from "./dom";
- import { addTaskToProject} from "./project";
+ import { createTaskDom, whichTab, currentId} from "./dom";
+ import { addTaskToProject, projectArray} from "./project";
 
  
  const tasksArray = [];
@@ -19,11 +19,14 @@ const addTask = () => {
     const dueDate = document.getElementById('dueDate').value;
 
     const task = new Task(name, description, dueDate);
-    tasksArray.push(task);
+    
     if(whichTab === 'project') {
         let id = currentId
         addTaskToProject(task, id);
+        createTaskList(projectArray[currentId].tasks);
+        return
     }
+    tasksArray.push(task);
     createTaskList(tasksArray);
 
 }
