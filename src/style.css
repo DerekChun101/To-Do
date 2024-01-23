@@ -140,3 +140,17 @@ li:not(:last-child) {
 .addProjectBtn:hover {
     background-color: rgb(211,211,211, 0.5);
 }
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    
+
+}
+.projectCard {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

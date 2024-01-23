@@ -1,6 +1,8 @@
 import { format,add } from "date-fns";
 import { tasksArray, createTaskList } from "./task";
+import { createProject, projectArray } from "./project";
 const taskContainer = document.querySelector('.taskContainer');
+const projectContainer = document.querySelector('.projectContainer');
 let mainHeader = document.querySelector('.mainHeader');
 
 let whichTab = '';
@@ -25,6 +27,12 @@ const loadThisWeek = () => {
     mainHeader.innerHTML = 'This Week';
     whichTab = 'week';
     createTaskList(tasksArray);
+}
+
+const loadProject = (name) => {
+    mainHeader.innerHTML = '';
+    mainHeader.innerHTML = name;
+    whichTab = 'project';
 }
 const createTaskDom = (task, id ,type) => {
     console.log(type);
@@ -141,9 +149,33 @@ function createTaskModal(name, description, date) {
     taskModal.showModal();
 }
 
+const createProjectDom = (project, id) => {
+    let projectCard = document.createElement('div');
+    projectCard.className = 'projectCard';
+    let projectName = document.createElement('div');
+    projectName.innerHTML = project.name;
+
+    let removeProject = document.createElement('div');
+    removeProject.innerHTML = 'X';
+    
+    projectCard.appendChild(projectName);
+    projectCard.appendChild(removeProject);
+    projectContainer.appendChild(projectCard);
+
+    projectName.addEventListener('click', () => {
+        loadProject(projectName.innerHTML);
+    })
+    removeProject.addEventListener('click', () => {
+        projectContainer.removeChild(projectCard);
+        projectArray.splice(id, 1);
+    })
+}
 
 
-export {createTaskDom,
-loadHome,
-loadToday,
-loadThisWeek}
+export {
+    createTaskDom,
+    createProjectDom,
+    loadHome,
+    loadToday,
+    loadThisWeek
+}

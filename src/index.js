@@ -59,5 +59,6 @@ const callAddProject = (e) => {
     e.preventDefault();
     dialog2.close();
 }
+
 dialog.addEventListener('submit', callAddTask);
 dialog2.addEventListener('submit', callAddProject);
