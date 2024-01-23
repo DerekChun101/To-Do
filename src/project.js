@@ -3,13 +3,18 @@ import { createProjectDom } from "./dom";
 const projectArray = [];
 const projectContainer = document.querySelector('.projectContainer');
 class Project {
-    constructor(name, tasks) {
+    constructor(name, id,  tasks = []) {
         this.name = name;
         this.tasks = tasks;
+        this.id = id;
     } 
 
     getTasks() {
+        
         return this.tasks;
+    }
+    getId() {
+        return this.id
     }
 }
 
@@ -20,6 +25,7 @@ const createProject = () => {
     projectArray.push(project);
     
    createProjectList(projectArray);
+   console.log(projectArray);
 };
 
 const createProjectList = (projects) => {
@@ -28,9 +34,12 @@ const createProjectList = (projects) => {
         let id = i;
         createProjectDom(projects[i], id);
     }
-}
 
-const addTaskToProject = () => {
     
 }
-export {createProject, projectArray};
+
+const addTaskToProject = (task, id) => {
+    projectArray[id].tasks.push(task);
+    console.log(projectArray[id]);
+}
+export {createProject, addTaskToProject, projectArray, createProjectList};

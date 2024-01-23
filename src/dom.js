@@ -1,12 +1,13 @@
 import { format,add } from "date-fns";
 import { tasksArray, createTaskList } from "./task";
-import { createProject, projectArray } from "./project";
+import { createProjectList, projectArray } from "./project";
 const taskContainer = document.querySelector('.taskContainer');
 const projectContainer = document.querySelector('.projectContainer');
 let mainHeader = document.querySelector('.mainHeader');
 
 let whichTab = '';
 let date = new Date();
+let currentId = 0;
 
 
 const loadHome = () => {
@@ -34,8 +35,8 @@ const loadProject = (name) => {
     mainHeader.innerHTML = name;
     whichTab = 'project';
 }
-const createTaskDom = (task, id ,type) => {
-    console.log(type);
+const createTaskDom = (task, id ) => {
+    
     let taskCard = document.createElement('div');
     taskCard.className = 'taskCard'
     let leftSection = document.createElement('div');
@@ -168,10 +169,13 @@ const createProjectDom = (project, id) => {
 
     projectCard.addEventListener('click', () => {
         loadProject(projectName.innerHTML);
+        currentId = id;
+        console.log(currentId);
     })
     removeProject.addEventListener('click', () => {
         projectContainer.removeChild(projectRow);
         projectArray.splice(id, 1);
+        createProjectList(projectArray);
         loadHome();
     })
 }
@@ -182,5 +186,7 @@ export {
     createProjectDom,
     loadHome,
     loadToday,
-    loadThisWeek
+    loadThisWeek,
+    whichTab,
+    currentId
 }

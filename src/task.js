@@ -1,4 +1,5 @@
- import { createTaskDom } from "./dom";
+ import { createTaskDom, whichTab, currentId } from "./dom";
+ import { addTaskToProject} from "./project";
 
  
  const tasksArray = [];
@@ -19,7 +20,10 @@ const addTask = () => {
 
     const task = new Task(name, description, dueDate);
     tasksArray.push(task);
-    
+    if(whichTab === 'project') {
+        let id = currentId
+        addTaskToProject(task, id);
+    }
     createTaskList(tasksArray);
 
 }
