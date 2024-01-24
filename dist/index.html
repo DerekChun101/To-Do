@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+<script defer src="bundle.js"></script></head>
+<body>
+    <div class="contentContainer">
+        <div class="sideBar">
+            <div class="header">
+                Todo
+            </div>
+            <ul class="tabs">
+                <li class="tab" id="home">Home</li>
+                <li class="tab" id="today">Today</li>
+                <li class="tab" id="thisWeek">This Week</li>
+            </ul>
+            <div class="header">
+                Projects
+            </div>
+            <Button class="addProjectBtn">+ Add Project</Button>
+            <div class="projectContainer"></div>
+        </div>
+        <div class="main">
+            <div class="mainHeader"></div>
+            <button class="addTaskBtn">+ Add Task</button>
+            <dialog class="addTaskModal" >
+                
+                <form class="addTaskForm">
+
+                  
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="task-input">
+                
+
+
+                    
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" class="task-input"></textarea>
+                        
+
+                   
+                       <label for="dueDate">Due Date</label>
+                       <input type="date" id="dueDate" name="dueDate" class="task-input" >
+                   
+
+                    <div class="btnContainer">
+                        <button type = 'submit' class="confirmBtn">Confirm</button>
+                        <button type = 'button' class="closeBtn" formmethod="dialog">X</button>
+                    </div>
+
+
+                </form>
+            </dialog>
+            <dialog class="addProjectModal">
+                <form class="addProjectForm">
+
+                  
+                    <label for="projectName">Name</label>
+                    <input type="text" id="projectName" name="projectName" class="task-input">
+               
+
+                <div class="btnContainer">
+                    <button type = 'submit' class="projectConfirmBtn">Confirm</button>
+                    <button type = 'button' class="projectClose" formmethod="dialog">X</button>
+                </div>
+
+
+            </form>
+            </dialog>
+            <div class="taskContainer"></div>
+           
+        </div>
+    </div>
+</body>
+</html>
