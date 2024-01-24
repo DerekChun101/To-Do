@@ -1,166 +1,159 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 .contentContainer {
-    display: flex;
+  display: flex;
 }
 .sideBar {
-    width: 20vw;
-    height: 100vh;
-    background: midnightblue;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  width: 20vw;
+  height: 100vh;
+  background: midnightblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 .sideBar > .header {
-    border-bottom: 1px solid white;
+  border-bottom: 1px solid white;
 }
 .tabs {
-    list-style: none;
-    font-size: 30px;
+  list-style: none;
+  font-size: 30px;
 }
 li:not(:last-child) {
-    margin-bottom: 3vh;
+  margin-bottom: 3vh;
 }
 .main {
-  
-    width: 80vw;
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 80vw;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .addTaskForm input {
-    margin-bottom: 3vh;
+  margin-bottom: 3vh;
 }
 .addTaskForm textarea {
-    margin-bottom: 3vh;
+  margin-bottom: 3vh;
 }
 .addTaskForm label {
-    font-weight: bold;
+  font-weight: bold;
 }
 #description {
-    width: 200px;
-    height: 100px;
+  width: 200px;
+  height: 100px;
 }
 .addTaskModal {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .mainHeader {
-    font-size: 50px;
-    font-weight: bold;
+  font-size: 50px;
+  font-weight: bold;
 }
 .addTaskBtn {
-    border: none;
-    background-color: white;
-    font-size: 20px;
-    margin-top: 2vh;
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  margin-top: 2vh;
 }
 .addTaskBtn:hover {
-    background-color: rgb(211,211,211, 0.5);
+  background-color: rgb(211, 211, 211, 0.5);
 }
 .header {
-    font-size: 50px;
-    font-weight: bold;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .addTaskForm {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .addTaskForm > button {
-    height: 30px;
-    width: 50px;
+  height: 30px;
+  width: 50px;
 }
 .taskContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-    width: 1400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 1400px;
 }
 .taskCard {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   height: 3vh;
-   font-size: 30px;
-
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3vh;
+  font-size: 30px;
 }
 .taskCard:hover {
-    background-color: rgb(211,211,211, 0.5);
-}   
+  background-color: rgb(211, 211, 211, 0.5);
+}
 .right > button {
-    border: none;
-    background-color: rgb(0,0,0,0);
-    font-size: 30px;
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
+  font-size: 30px;
 }
 
 .right > button:hover {
-    background-color: rgb(211,211,211, 0.5);
+  background-color: rgb(211, 211, 211, 0.5);
 }
 
 .taskModal {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    width: 1000px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  width: 1000px;
 }
-
 
 .left {
-    display: flex;
-    gap: 1vw;
-    align-items: center;
+  display: flex;
+  gap: 1vw;
+  align-items: center;
 }
-
 
 .right {
-    display: flex;
-    gap:1vw;
+  display: flex;
+  gap: 1vw;
 }
 
-.done{
-    opacity: 0.5;
-    background-color: rgb(211,211,211);
+.done {
+  opacity: 0.5;
+  background-color: rgb(211, 211, 211);
 }
 
 .addProjectBtn {
-    border: none;
-    background-color: rgb(0,0,0,0);
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 2vh;
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 2vh;
 }
 
 .addProjectBtn:hover {
-    background-color: rgb(211,211,211, 0.5);
+  background-color: rgb(211, 211, 211, 0.5);
 }
 
 .projectContainer {
-    margin-top: 2vh;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    
-
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
 }
 .projectCard {
-    font-size: 30px;
-    
+  font-size: 30px;
 }
 .projectRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
 }
 
 .projectCard:hover {
-    background-color: rgb(211,211,211, 0.5);
+  background-color: rgb(211, 211, 211, 0.5);
 }
