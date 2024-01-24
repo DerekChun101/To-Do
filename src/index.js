@@ -1,9 +1,25 @@
 import './style.css';
 import { addTask } from './task'
 import { createProject } from './project';
-import { loadHome,loadThisWeek,loadToday } from './dom';
+import { loadHome,loadProject,loadThisWeek,loadToday } from './dom';
+import {loadProjectsData, loadTasksData} from './savedata'
+import { projectArray } from './project';
+import { tasksArray } from './task';
 
+// if(localStorage.getItem('projects')=== 'null') {
+//     saveProjects(projectArray);
+//     if(localStorage.getItem('tasks') === 'null') {
+//         saveProjects(tasksArray);
+//     } 
+// } else {
+    
+
+// }
+
+loadProjectsData();
+loadTasksData();
 loadHome();
+
 
 const dialog = document.querySelector('.addTaskModal');
 const dialog2 = document.querySelector('.addProjectModal');

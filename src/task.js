@@ -1,5 +1,6 @@
  import { createTaskDom, whichTab, currentId} from "./dom";
  import { addTaskToProject, projectArray} from "./project";
+ import { saveTasks } from "./savedata";
 
  
  const tasksArray = [];
@@ -27,6 +28,8 @@ const addTask = () => {
         return
     }
     tasksArray.push(task);
+    saveTasks(tasksArray);
+    console.log(localStorage.getItem('tasks'))
     createTaskList(tasksArray);
 
 }

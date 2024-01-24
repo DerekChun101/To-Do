@@ -1,6 +1,7 @@
 import { format,add } from "date-fns";
 import { tasksArray, createTaskList } from "./task";
 import { createProjectList, projectArray } from "./project";
+import { saveTasks } from "./savedata";
 const taskContainer = document.querySelector('.taskContainer');
 const projectContainer = document.querySelector('.projectContainer');
 let mainHeader = document.querySelector('.mainHeader');
@@ -68,6 +69,7 @@ const createTaskDom = (task, id ) => {
         
         taskContainer.removeChild(taskCard);
         tasksArray.splice(id, 1);
+        saveTasks(tasksArray);
         
     })
     

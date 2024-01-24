@@ -1,5 +1,7 @@
 import { addTask} from "./task";
 import { createProjectDom } from "./dom";
+import { saveProjects } from "./savedata";
+
 const projectArray = [];
 const projectContainer = document.querySelector('.projectContainer');
 class Project {
@@ -21,6 +23,8 @@ const createProject = () => {
     projectArray.push(project);
     
    createProjectList(projectArray);
+   saveProjects(projectArray);
+
    console.log(projectArray);
 };
 
