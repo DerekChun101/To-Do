@@ -1,4 +1,4 @@
-import { addTask} from "./task";
+
 import { createProjectDom } from "./dom";
 import { saveProjects } from "./savedata";
 
@@ -40,6 +40,7 @@ const createProjectList = (projects) => {
 
 const addTaskToProject = (task, id) => {
     projectArray[id].tasks.push(task);
-    console.log(projectArray[id]);
+
+    saveProjects(projectArray);
 }
 export {createProject, addTaskToProject, projectArray, createProjectList};

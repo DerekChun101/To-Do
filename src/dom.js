@@ -1,7 +1,7 @@
 import { format,add } from "date-fns";
 import { tasksArray, createTaskList } from "./task";
 import { createProjectList, projectArray } from "./project";
-import { saveTasks } from "./savedata";
+import { saveProjects, saveTasks } from "./savedata";
 const taskContainer = document.querySelector('.taskContainer');
 const projectContainer = document.querySelector('.projectContainer');
 let mainHeader = document.querySelector('.mainHeader');
@@ -17,6 +17,7 @@ const loadHome = () => {
     whichTab = 'home'
     console.log();
     createTaskList(tasksArray);
+    createProjectList(projectArray);
 }
 const loadToday = () => {
     mainHeader.innerHTML = '';
@@ -35,7 +36,7 @@ const loadProject = (name) => {
     mainHeader.innerHTML = '';
     mainHeader.innerHTML = name;
     whichTab = 'project';
-    createTaskList(projectArray[currentId].getTasks())
+    createTaskList(projectArray[currentId].tasks)
 }
 const createTaskDom = (task, id ) => {
     
@@ -183,7 +184,7 @@ const createProjectDom = (project, id) => {
         projectContainer.removeChild(projectRow);
         projectArray.splice(id, 1);
         createProjectList(projectArray);
-
+        saveProjects(projectArray);
         loadHome();
     })
 }
